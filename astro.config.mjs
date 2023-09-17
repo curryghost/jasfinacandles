@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import tailwind from "@astrojs/tailwind";
 
@@ -7,8 +7,11 @@ import preact from "@astrojs/preact";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  server: {
+    port: 3000,
+  },
   adapter: node({
-    mode: "standalone"
+    mode: "standalone",
   }),
-  integrations: [tailwind(), preact()]
+  integrations: [tailwind(), preact()],
 });
