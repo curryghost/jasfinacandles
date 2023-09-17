@@ -1,16 +1,9 @@
-FROM oven/bun:1.0.2 AS build
-COPY . /app
-ENV NODE_ENV=production
+FROM oven/bun:1.0.2
 WORKDIR /app
-RUN bun i && bun run build
-
-FROM oven/bun:1.0.2 AS bunsetup
-COPY --from=build /app/dist /app
-RUN bun add --global mime
-
-FROM bunsetup AS final
+COPY . .
+ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=8080
-WORKDIR /app
-CMD ["bun", "run", "./server/entry.mjs"]
+RUN bun i && bun run build
 EXPOSE 8080
+CMD ["bun", "run", "./dist/server/entry.mjs"]
