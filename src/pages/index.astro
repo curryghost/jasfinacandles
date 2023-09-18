@@ -3,9 +3,9 @@ import { Storage } from "@google-cloud/storage";
 import RootLayout from "../layouts/root-layout.astro";
 import Card from "../components/ui/card/card";
 
-const [files] = await new Storage()
-  .bucket("jasfinacandles-dev.appspot.com")
-  .getFiles();
+// const res = new Storage().bucket("jasfinacandles-dev.appspot.com").getFiles();
+
+// const [files] = await res;
 ---
 
 <RootLayout>
@@ -13,8 +13,8 @@ const [files] = await new Storage()
     <h1 class="mt-10 text-center font-notoSerif text-3xl font-bold text-accent">
       JasfinaCandles
     </h1>
-    <div class="mx-auto grid max-w-lg grid-cols-4 gap-4">
+    <!-- <div class="mx-auto grid max-w-lg grid-cols-4 gap-4">
       {files.map((f) => <Card url={f.publicUrl()} />)}
-    </div>
+    </div> -->
   </div>
 </RootLayout>

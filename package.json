@@ -13,6 +13,7 @@
     "@astrojs/node": "^6.0.0",
     "@astrojs/preact": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@google-cloud/firestore": "^6.7.0",
     "@google-cloud/storage": "^7.1.0",
     "@preact/signals": "^1.2.1",
     "astro": "^3.1.0",

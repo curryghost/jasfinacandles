@@ -7,11 +7,9 @@ export default function UploadForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: Event) => {
-    console.log("click");
     e.preventDefault();
     if (!formRef.current) return;
     const formData = new FormData(formRef.current);
-    console.log(formData);
     const file = formData.get("pic") as File;
     if (!file) return;
     fetch("/api/upload", {
