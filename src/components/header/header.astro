@@ -1,0 +1,33 @@
+---
+interface Nav {
+  name: string;
+  route: string;
+  isSelected: boolean;
+}
+import DropDown from "./dropdown";
+import Line from "../ui/line/line.astro";
+---
+
+<div class="flex justify-center bg-dark">
+  <a href="/"
+    ><img
+      src="/logo/jasfina-logo.svg"
+      alt="logo"
+      class="filter-primary h-28"
+    /></a
+  >
+</div>
+<header class="sticky top-0 h-[5svh] w-[100svw] bg-dark text-xs font-bold">
+  <nav class="flex h-full items-center justify-center gap-5">
+    <a class="hover:text-secondary" href="/">Home</a>
+    <DropDown name="Catagory" client:load>
+      <a class="px-5 hover:bg-accent hover:text-secondary" href="/something"
+        >something<Line /></a
+      >
+      <a class="px-5 hover:bg-accent hover:text-secondary" href="/something2"
+        >something2<Line /></a
+      >
+    </DropDown>
+    <a class="text-red-500 hover:text-secondary" href="/dashboard">Dashboard</a>
+  </nav>
+</header>

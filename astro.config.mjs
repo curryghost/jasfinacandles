@@ -7,11 +7,8 @@ import preact from "@astrojs/preact";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  server: {
-    port: 3000,
-  },
   adapter: node({
     mode: "standalone",
   }),
-  integrations: [tailwind(), preact()],
+  integrations: [tailwind({ applyBaseStyles: false }), preact()],
 });

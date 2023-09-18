@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSerif";
+  src: url("/fonts/NotoSerif.ttf") format("truetype");
+}
+
+@layer base {
+  @import "./color";
+  body,
+  ::before,
+  ::after {
+    font-family: "Nunito", "Roboto", sans-serif, ui-sans-serif, system-ui,
+      "-apple-system";
+
+    @apply text-primary;
+    @apply bg-shade;
+  }
+}
+
+@layer utilities {
+  .filter-white {
+    filter: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(2%)
+      hue-rotate(198deg) brightness(120%) contrast(100%);
+  }
+  .filter-primary {
+    filter: brightness(0) saturate(100%) invert(98%) sepia(96%) saturate(2625%)
+      hue-rotate(311deg) brightness(102%) contrast(90%);
+  }
+}

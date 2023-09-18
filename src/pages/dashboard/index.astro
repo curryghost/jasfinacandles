@@ -1,0 +1,34 @@
+---
+import RootLayout from "../../layouts/root-layout.astro";
+import Preview from "../../components/preview/preview";
+import { Storage } from "@google-cloud/storage";
+import UploadForm from "../../components/upload-form/upload-form";
+
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
+  const file = data.get("pic") as File;
+  const saveData = Buffer.from(await file.arrayBuffer());
+  const storage = new Storage();
+  storage
+    .bucket("jasfinacandles-dev.appspot.com")
+    .file("test2")
+    .save(saveData, {
+      contentType: file.type,
+      public: true,
+    })
+    .then(() => {
+      const res = new Response(null, { status: 200 });
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+---
+
+<RootLayout>
+  <h1 class="mt-5 text-center text-2xl font-bold">Dashboard</h1>
+  <main>
+    <UploadForm client:only="preact" />
+  </main>
+</RootLayout>
